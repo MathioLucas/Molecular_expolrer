@@ -1,0 +1,61 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MoleculeViewer from '../components/MoleculeViewer';
+import MoleculeInput from '../components/MoleculeInput';
+import MeasurementTools from '../components/MeasurementTools';
+import DescriptorPanel from '../components/DescriptorPanel';
+import ExportOptions from '../components/ExportOptions';
+import ThemeToggle from '../components/ThemeToggle';
+---
+
+<Layout title="3D Molecular Explorer">
+  <div class="flex flex-col gap-4">
+    <section class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md">
+      <h1 class="text-2xl font-bold mb-4">3D Molecular Explorer</h1>
+      <p class="mb-4">
+        Enter a SMILES or InChI string to visualize molecules in 3D. You can rotate, zoom, and explore molecular properties.
+      </p>
+      
+      <div class="flex flex-col md:flex-row gap-4 mb-4">
+        <div class="md:w-2/3">
+          <MoleculeInput client:load />
+        </div>
+        <div class="md:w-1/3 flex justify-end">
+          <ThemeToggle client:load />
+        </div>
+      </div>
+    </section>
+
+    <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+      <!-- 3D Viewer - takes 3/4 of the width on large screens -->
+      <div class="lg:col-span-3 bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md">
+        <div class="aspect-video md:aspect-auto md:h-[600px] bg-gray-100 dark:bg-gray-700 rounded-md overflow-hidden">
+          <MoleculeViewer client:load />
+        </div>
+        <div class="mt-4">
+          <MeasurementTools client:load />
+        </div>
+      </div>
+      
+      <!-- Properties Panel - takes 1/4 of the width on large screens -->
+      <div class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md overflow-auto">
+        <DescriptorPanel client:load />
+        <div class="mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
+          <ExportOptions client:load />
+        </div>
+      </div>
+    </div>
+
+    <section class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md">
+      <h2 class="text-xl font-bold mb-2">How to Use</h2>
+      <ul class="list-disc pl-5 space-y-1">
+        <li>Enter a SMILES string (e.g., "CCO" for ethanol) and click "Render"</li>
+        <li>Click and drag to rotate the molecule</li>
+        <li>Scroll to zoom in/out</li>
+        <li>Right-click and drag to pan</li>
+        <li>Use the measurement tools to view bond lengths and angles</li>
+        <li>Export the molecule in various formats</li>
+      </ul>
+    </section>
+  </div>
+</Layout>

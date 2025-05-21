@@ -1,0 +1,32 @@
+{
+  "caffeine": {
+    "name": "Caffeine",
+    "smiles": "CN1C=NC2=C1C(=O)N(C(=O)N2C)C",
+    "description": "A central nervous system stimulant of the methylxanthine class."
+  },
+  "aspirin": {
+    "name": "Aspirin",
+    "smiles": "CC(=O)OC1=CC=CC=C1C(=O)O",
+    "description": "A medication used to reduce pain, fever, and inflammation."
+  },
+  "penicillin": {
+    "name": "Penicillin G",
+    "smiles": "CC1(C)SC2C(NC(=O)CC3=CC=CC=C3)C(=O)N2C1C(=O)O",
+    "description": "The first antibiotic to be widely used."
+  },
+  "graphene": {
+    "name": "Graphene Fragment",
+    "smiles": "C1=CC=C2C=CC=CC2=C1",
+    "description": "A simple fragment of graphene, a material with remarkable properties."
+  },
+  "glucose": {
+    "name": "Glucose",
+    "smiles": "C(C1C(C(C(C(O1)O)O)O)O)O",
+    "description": "A simple sugar (monosaccharide) and important carbohydrate."
+  },
+  "adrenaline": {
+    "name": "Adrenaline",
+    "smiles": "CNC[C@H](O)C1=CC(O)=C(O)C=C1",
+    "description": "A hormone and neurotransmitter involved in the fight-or-flight response."
+  }
+}

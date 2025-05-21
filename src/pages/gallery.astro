@@ -1,0 +1,31 @@
+---
+import Layout from '../layouts/Layout.astro';
+import MoleculeCard from '../components/MoleculeCard';
+
+// Fetch example molecules
+const response = await fetch(new URL('molecule-examples.json', Astro.url.origin).href);
+const molecules = await response.json();
+---
+
+<Layout title="Molecule Gallery | 3D Molecular Explorer">
+  <div class="flex flex-col gap-4">
+    <section class="bg-white dark:bg-gray-800 p-4 rounded-lg shadow-md">
+      <h1 class="text-2xl font-bold mb-4">Molecule Gallery</h1>
+      <p class="mb-4">
+        Explore our collection of example molecules. Click on a molecule to view it in the 3D explorer.
+      </p>
+    </section>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+      {Object.entries(molecules).map(([id, molecule]) => (
+        <MoleculeCard
+          client:load
+          id={id}
+          name={molecule.name}
+          smiles={molecule.smiles}
+          description={molecule.description}
+        />
+      ))}
+    </div>
+  </div>
+</Layout>
